@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  tracker:
+    build: .
+    image: pandev
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/pandevDb
+      - SPRING_DATASOURCE_USERNAME=Faruh
+      - SPRING_DATASOURCE_PASSWORD=iamroot
+
+  db:
+    image: postgres:15.1-alpine
+    ports:
+      - "6531:5432"
+    environment:
+      - POSTGRES_DB=pandevDb
+      - POSTGRES_USER=Faruh
+      - POSTGRES_PASSWORD=iamroot
