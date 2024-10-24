@@ -34,7 +34,6 @@ public class ViewTreeCommand implements BotCommand {
 
         StringBuilder treeBuilder = new StringBuilder();
         buildCategoryTree(null, categories, treeBuilder, 0);
-        System.err.println(treeBuilder);
         return treeBuilder.toString();
     }
 

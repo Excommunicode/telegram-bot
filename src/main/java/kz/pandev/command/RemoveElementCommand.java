@@ -30,9 +30,7 @@ public class RemoveElementCommand implements BotCommand {
         String string = update.getMessage().getText().split(" ")[1];
         int i = categoryRepository.deleteByNameAndId(string);
         if (i == 0) {
-            throw NotFoundException.builder()
-                    .message(String.format("Element with name: %s not found", string))
-                    .build();
+            return String.format("Element with name: %s not found", string);
         }
 
         return "removed element" + string;

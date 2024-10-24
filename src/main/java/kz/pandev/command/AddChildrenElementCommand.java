@@ -35,9 +35,7 @@ public class AddChildrenElementCommand implements BotCommand {
         int i = categoryRepository.saveChildWithParent(childElement, parentElement);
 
         if (i == 0) {
-            throw NotFoundException.builder()
-                    .message(String.format("Parent element with name %s was not found", parentElement))
-                    .build();
+            return String.format("Parent element with name %s was not found", parentElement);
         }
 
         return childElement;
